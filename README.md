@@ -36,13 +36,13 @@ vLLM → TensorRT-LLM → LangChain → 部署 → 评测 → 安全对齐
 ## 代码结构
 
 ```
-day01-what-is-lm/
-├── README.md          # 当日讲解
-└── ngram_lm.py        # 配套代码
+day01-what-is-lm/          # Day 1: 语言模型是什么？从掷骰子说起
+├── README.md              # 当日讲解
+└── ngram_lm.py            # 配套代码：N-gram 语言模型
 
-day02-tokenization/
+day02-bpe-tokenizer/      # Day 2: Tokenization — 文字怎么变成数字
 ├── README.md
-└── bpe_tokenizer.py
+└── bpe_tokenizer.py       # 配套代码：BPE 分词器
 
 ...
 ```
