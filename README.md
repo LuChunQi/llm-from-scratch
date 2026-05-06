@@ -44,6 +44,14 @@ day02-bpe-tokenizer/      # Day 2: Tokenization — 文字怎么变成数字
 ├── README.md
 └── bpe_tokenizer.py       # 配套代码：BPE 分词器
 
+day03-embedding/           # Day 3: 词嵌入（Word Embedding）
+├── README.md
+└── skip_gram.py            # 配套代码：Skip-gram (Word2Vec)
+
+day04-rnn-to-attention/    # Day 4: 从 RNN 到 Attention
+├── README.md
+└── rnn_to_attention.py     # 配套代码：RNN/LSTM/Attention 对比
+
 ...
 ```
 
