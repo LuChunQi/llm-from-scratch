@@ -52,6 +52,10 @@ day04-rnn-to-attention/    # Day 4: 从 RNN 到 Attention
 ├── README.md
 └── rnn_to_attention.py     # 配套代码：RNN/LSTM/Attention 对比
 
+day05-transformer-intro/  # Day 5: Transformer 登场
+├── README.md
+└── transformer_skeleton.py # 配套代码：Transformer Encoder 骨架
+
 ...
 ```
 
