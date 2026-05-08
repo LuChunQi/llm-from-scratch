@@ -56,6 +56,10 @@ day05-transformer-intro/  # Day 5: Transformer 登场
 ├── README.md
 └── transformer_skeleton.py # 配套代码：Transformer Encoder 骨架
 
+day06-self-attention/    # Day 6: Self-Attention — 自注意力机制
+├── README.md
+└── self_attention.py      # 配套代码：纯 NumPy + PyTorch 实现
+
 ...
 ```
 
