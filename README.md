@@ -60,6 +60,10 @@ day06-self-attention/    # Day 6: Self-Attention — 自注意力机制
 ├── README.md
 └── self_attention.py      # 配套代码：纯 NumPy + PyTorch 实现
 
+day07-multi-head-attention/ # Day 7: Multi-Head Attention — 多头注意力
+├── README.md
+└── multi_head_attention.py # 配套代码：多头注意力 + 可视化 + 对比实验
+
 ...
 ```
 
