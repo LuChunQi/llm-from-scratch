@@ -282,7 +282,9 @@ python3 ngram_lm.py
 
 ---
 
-**下一篇**：Day 2 - Tokenizer：文字怎么变成数字？
+> 🤔 **今天留下的悬念**：语言模型需要预测"下一个词"——但计算机只懂数字，不认识文字。怎么把文字变成数字？这就是明天 Tokenization 要解决的问题。
+
+**下一篇**：[Day 2 - Tokenizer：文字怎么变成数字？](../day02-bpe-tokenizer/README.md)
 
 ---
 

@@ -269,3 +269,13 @@ python3 positional_encoding.py
 | **相对位置编码** | 编码"你和某个词隔了多远" |
 | **长度外推** | 训练时用短序列，推理时能否处理更长序列 |
 | **频率矩阵** | RoPE 中的 θᵢ = 1/10000^(2i/d)，控制每对维度的旋转速度 |
+
+---
+
+> 🤔 **今天留下的悬念**：到今天为止，我们已经集齐了 Transformer 的所有零件——Self-Attention、Multi-Head Attention、位置编码、FFN、残差连接。接下来，就是把这些零件组装成一个完整的模型了。
+
+**下节预告**：Day 9 — 动手搭建完整 Transformer！把所有零件拼装起来，跑通第一次前向传播。
+
+---
+
+*本课程代码开源于 [GitHub](https://github.com/nianyeye/llm-course)，欢迎 Star ⭐*

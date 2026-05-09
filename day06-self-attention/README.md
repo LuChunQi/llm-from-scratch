@@ -225,4 +225,8 @@ output = attn_weights @ V              # [seq_len, d_v]
 
 ---
 
-**下期预告**：Day 7 我们将在 Self-Attention 的基础上升级到 **Multi-Head Attention**——为什么一个注意力不够用？多个"头"各自关注什么？敬请期待！
+**下节预告**：Day 6 我们拆解了单头 Self-Attention，但一个问题始终悬在头顶——**一个注意力头只能学到一种关注模式，语言的复杂性远不止于此。** 明天 Day 7 我们将升级到 Multi-Head Attention：为什么一个头不够用？多个"头"各自关注什么？
+
+---
+
+*本课程代码开源于 [GitHub](https://github.com/nianyeye/llm-course)，欢迎 Star ⭐*

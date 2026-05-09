@@ -1,12 +1,22 @@
 # Day 5 - Transformer 登场：Attention Is All You Need
 
+---
+
+## 🔗 上节回顾
+
+昨天我们走完了一段精彩的演进之路：RNN 能"记住"前面的词，但记忆会衰减；LSTM 加了门控缓解衰减，但还是串行计算，又慢又记不住超长的序列；Seq2Seq 把长句子压成一个向量，信息装不下；最后 Attention 说出那句经典——"别压缩了，按需取用"。
+
+结尾我们提到了一个疯狂的想法：**既然 Attention 根本不需要 RNN 的链式结构，那我们能不能干脆把 RNN 扔掉？**
+
+2017 年，Google 的 8 位研究员用一篇论文回答了这个问题。标题霸气侧漏——**"Attention Is All You Need"**（注意力就是你需要的一切）。他们提出了 **Transformer**，一个纯 Attention 架构，彻底抛弃了 RNN。
+
+今天你听过的所有大模型——GPT、BERT、LLaMA、Claude——全部基于它。
+
+---
+
 ## 🎯 今天学什么？
 
-昨天我们学了 RNN 和 LSTM，知道了它们有两个致命弱点：**记不住太远的东西**（长距离依赖），**没法并行计算**（必须一步一步来）。
-
-2017 年，Google 的 8 位研究员发了一篇论文，标题霸气侧漏——**"Attention Is All You Need"**（注意力就是你需要的一切）。他们提出了一个全新的架构叫 **Transformer**，彻底抛弃了 RNN，纯靠"注意力机制"来处理序列。
-
-这篇论文彻底改变了 NLP 乃至整个 AI 的走向。今天所有你听过的大模型——GPT、BERT、LLaMA、Claude——全部基于 Transformer。
+我们要把 Transformer 从里到外拆解一遍：它由哪些组件构成？每个组件解决了什么问题？信息在里面是怎么流动的？
 
 ---
 
@@ -66,7 +76,7 @@
 
 ### 1. 自注意力（Self-Attention）：每个人都在看所有人
 
-自注意力是 Transformer 的灵魂。它的作用是：**让序列中的每个位置，都能从整个序列中"提取"相关信息。**
+> ❓ **问题**：RNN 串行传信息会衰减。那怎么让每个词都能直接"看到"所有其他词，不管它们隔多远？
 
 #### 一个直觉理解
 
@@ -97,7 +107,9 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)
 
 ### 2. 多头注意力（Multi-Head Attention）：多个视角看世界
 
-一组 Q、K、V 只能学到一种关联模式。多头注意力就是**同时用多组 Q、K、V**，让模型从多个不同的"视角"理解输入。
+> ❓ **问题**：一组 Q/K/V 只能学到一种关注模式（比如只看语法关系）。但语言是复杂的——词与词之间有语法关系、语义关系、指代关系……一组注意力根本不够用。怎么办？
+
+**答案：用多组 Q/K/V，让模型从多个不同的"视角"理解输入。**
 
 类比：看一部电影，一个人关注剧情，一个人关注画面，一个人关注配乐——最后综合所有人的感受，得到更全面的理解。
 
@@ -115,7 +127,9 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)
 
 ### 3. 位置编码（Positional Encoding）：注入顺序信息
 
-Transformer 没有循环结构，天生不知道词的顺序。我们需要**额外告诉它每个词的位置**。
+> ❓ **问题**：Attention 机制有一个天生的盲点——它完全不知道词的顺序！"我爱你"和"你爱我"在 Attention 眼里一模一样。怎么弥补？
+
+**答案：给每个位置生成一个独特的"身份证"，加到词向量上。**
 
 原论文用的是正弦/余弦编码：
 
@@ -126,6 +140,8 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
 
 ### 4. 前馈网络（FFN）：每个位置的"思考"
 
+> ❓ **问题**：Attention 负责收集全局信息，但收集来的信息还没被"消化"。谁来做这个思考加工？
+
 每个 Transformer 层除了注意力，还有一个 FFN：
 
 $$\text{FFN}(x) = \text{ReLU}(xW_1 + b_1)W_2 + b_2$$
@@ -133,6 +149,8 @@ $$\text{FFN}(x) = \text{ReLU}(xW_1 + b_1)W_2 + b_2$$
 这是一个两层全连接网络，对每个位置**独立**做非线性变换。如果说注意力是"收集信息"，那 FFN 就是"处理信息"。
 
 ### 5. 残差连接 & Layer Norm
+
+> ❓ **问题**：Transformer 层叠得很深（GPT-3 有 96 层），深层网络容易出现梯度消失。怎么让梯度在深网中畅行无阻？
 
 每个子层的输出都是：
 
@@ -142,6 +160,8 @@ $$\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))$$
 - **Layer Normalization**：对每个样本的特征维度做归一化，稳定训练。
 
 ### 6. Encoder vs Decoder
+
+> ❓ **问题**：Transformer 诞生时是为了翻译任务（ Encoder 读源语言，Decoder 生成目标语言）。但现在 GPT 只用 Decoder，BERT 只用 Encoder——为什么？
 
 | 特性 | Encoder | Decoder |
 |------|---------|---------|
@@ -244,6 +264,16 @@ $$\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))$$
 ## 📝 一句话总结
 
 > Transformer 用"注意力"取代了"循环"，让每个位置都能直接看到全局信息，实现了并行计算和长距离依赖，开启了大规模预训练模型的时代。
+
+---
+
+> 🤔 **今天留下的悬念**：我们拆解了 Transformer 的骨架，但 Self-Attention 的内部计算细节还没展开——Q、K、V 到底怎么算？注意力权重是什么形状？缩放因子为什么是 √d_k？明天 Day 6 我们将深入 Self-Attention 的数学细节，手写每一行代码。
+
+**下节预告**：Day 6 — Self-Attention 深度拆解，让每个词"看见"所有其他词。
+
+---
+
+*本课程代码开源于 [GitHub](https://github.com/nianyeye/llm-course)，欢迎 Star ⭐*
 
 ---
 

@@ -291,3 +291,7 @@ A: 不是。研究表明头数存在"甜点"：
 ---
 
 _下一课预告：Day 8 — 位置编码。Transformer 的注意力本身是"位置无关"的，那它怎么知道词的顺序呢？_
+
+---
+
+*本课程代码开源于 [GitHub](https://github.com/nianyeye/llm-course)，欢迎 Star ⭐*
