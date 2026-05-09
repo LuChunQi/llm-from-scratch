@@ -64,6 +64,10 @@ day07-multi-head-attention/ # Day 7: Multi-Head Attention — 多头注意力
 ├── README.md
 └── multi_head_attention.py # 配套代码：多头注意力 + 可视化 + 对比实验
 
+day08-positional-encoding/ # Day 8: 位置编码 — Sinusoidal / RoPE / ALiBi
+├── README.md
+└── positional_encoding.py  # 配套代码：三种位置编码实现 + 对比实验
+
 ...
 ```
 
