@@ -101,9 +101,11 @@
 
 数学公式：
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$
+```math
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+```
 
-**为什么要除以 $\sqrt{d_k}$？** 因为当维度很大时，点积的值会变得很大，softmax 的梯度会消失（进入饱和区）。除以 $\sqrt{d_k}$ 相当于做了一个温度调节，让梯度保持健康。
+**为什么要除以 √d_k？** 因为当维度很大时，点积的值会变得很大，softmax 的梯度会消失（进入饱和区）。除以 √d_k 相当于做了一个温度调节，让梯度保持健康。
 
 ### 2. 多头注意力（Multi-Head Attention）：多个视角看世界
 
@@ -133,8 +135,13 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)
 
 原论文用的是正弦/余弦编码：
 
-$$PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{model}})$$
-$$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
+```math
+PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{model}})
+```
+
+```math
+PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})
+```
 
 这就像给每个位置一个**独一无二的条形码**，让模型知道谁在前面、谁在后面。
 
@@ -144,7 +151,9 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
 
 每个 Transformer 层除了注意力，还有一个 FFN：
 
-$$\text{FFN}(x) = \text{ReLU}(xW_1 + b_1)W_2 + b_2$$
+```math
+\text{FFN}(x) = \text{ReLU}(xW_1 + b_1)W_2 + b_2
+```
 
 这是一个两层全连接网络，对每个位置**独立**做非线性变换。如果说注意力是"收集信息"，那 FFN 就是"处理信息"。
 
@@ -154,9 +163,11 @@ $$\text{FFN}(x) = \text{ReLU}(xW_1 + b_1)W_2 + b_2$$
 
 每个子层的输出都是：
 
-$$\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))$$
+```math
+\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))
+```
 
-- **残差连接**（$x + \text{Sublayer}(x)$）：直接把输入"短路"到输出，缓解深层网络的梯度消失问题。就像高速路上的"快速通道"，信息可以直接流过。
+- **残差连接**（x + Sublayer(x)）：直接把输入"短路"到输出，缓解深层网络的梯度消失问题。就像高速路上的"快速通道"，信息可以直接流过。
 - **Layer Normalization**：对每个样本的特征维度做归一化，稳定训练。
 
 ### 6. Encoder vs Decoder
@@ -216,12 +227,14 @@ $$\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))$$
 
 | 组件 | 参数量 |
 |------|--------|
-| Q/K/V 投影 | $4 \times d_{model}^2$（含输出投影） |
-| FFN | $8 \times d_{model}^2$（中间层通常 4 倍） |
-| LayerNorm | $4 \times d_{model}$ |
-| **每层总计** | $\approx 12 \times d_{model}^2$ |
+| 组件 | 参数量 |
+|------|--------|
+| Q/K/V 投影 | 4 × d²_model（含输出投影） |
+| FFN | 8 × d²_model（中间层通常 4 倍） |
+| LayerNorm | 4 × d_model |
+| **每层总计** | ≈ 12 × d²_model |
 
-例如 $d_{model} = 768$（BERT-Base），每层约 $12 \times 768^2 \approx 7M$ 参数，12 层总共约 84M（再加上 embedding 约 110M）。
+例如 d_model = 768（BERT-Base），每层约 12 × 768² ≈ 7M 参数，12 层总共约 84M（再加上 embedding 约 110M）。
 
 ---
 
@@ -230,7 +243,7 @@ $$\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))$$
 | 超参数 | Base 模型 | Big 模型 |
 |--------|----------|---------|
 | 层数 (N) | 6 | 6 |
-| $d_{model}$ | 512 | 1024 |
+| d_model | 512 | 1024 |
 | FFN 中间维度 | 2048 | 4096 |
 | 注意力头数 (h) | 8 | 16 |
 | 参数量 | 65M | 213M |
@@ -291,5 +304,5 @@ $$\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))$$
 | **Mask** | 掩码，在 Decoder 中遮挡未来信息 |
 | **Encoder** | 编码器，双向注意力，用于理解任务 |
 | **Decoder** | 解码器，单向注意力，用于生成任务 |
-| **$d_{model}$** | 模型的隐藏维度 |
-| **Scaled Dot-Product** | 缩放点积注意力，除以 $\sqrt{d_k}$ 防止梯度消失 |
+| **d_model** | 模型的隐藏维度 |
+| **Scaled Dot-Product** | 缩放点积注意力，除以 √d_k 防止梯度消失 |
