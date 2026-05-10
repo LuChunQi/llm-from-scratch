@@ -68,6 +68,10 @@ day08-positional-encoding/ # Day 8: 位置编码 — Sinusoidal / RoPE / ALiBi
 ├── README.md
 └── positional_encoding.py  # 配套代码：三种位置编码实现 + 对比实验
 
+day09-feed-forward-network/ # Day 9: Feed-Forward Network — Transformer 的消化系统
+├── README.md
+└── feed_forward_network.py  # 配套代码：FFN实现 + 激活函数对比 + 键值记忆实验
+
 ...
 ```
 
