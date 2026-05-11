@@ -72,6 +72,10 @@ day09-feed-forward-network/ # Day 9: Feed-Forward Network — Transformer 的消
 ├── README.md
 └── feed_forward_network.py  # 配套代码：FFN实现 + 激活函数对比 + 键值记忆实验
 
+day10-layer-norm/          # Day 10: Layer Normalization + 残差连接
+├── README.md
+└── layer_norm.py            # 配套代码：LayerNorm/RMSNorm + 梯度实验 + Transformer Block
+
 ...
 ```
 
