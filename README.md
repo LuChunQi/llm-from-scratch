@@ -76,6 +76,10 @@ day10-layer-norm/          # Day 10: Layer Normalization + 残差连接
 ├── README.md
 └── layer_norm.py            # 配套代码：LayerNorm/RMSNorm + 梯度实验 + Transformer Block
 
+day11-residual-connection/  # Day 11: 残差连接深入
+├── README.md
+└── residual_connection.py   # 配套代码：梯度可视化 + 信息保留 + 残差流分析 + 变体对比
+
 ...
 ```
 
