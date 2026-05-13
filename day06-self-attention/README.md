@@ -62,8 +62,8 @@ Self-Attention 的核心是三个矩阵变换:**Query (Q)**、**Key (K)**、**Va
 
 具体来说，对于输入序列 X（形状 `[seq_len, d_model]`）：
 
-```math
-Q = X \cdot W_Q, \quad K = X \cdot W_K, \quad V = X \cdot W_V
+```
+Q = X · W_Q,   K = X · W_K,   V = X · W_V
 ```
 
 其中 W_Q, W_K, W_V 是可学习的参数矩阵，形状都是 `[d_model, d_k]`。
@@ -77,8 +77,8 @@ Q = X \cdot W_Q, \quad K = X \cdot W_K, \quad V = X \cdot W_V
 
 用 Q 和 K 的点积衡量“匹配程度”：
 
-```math
-\text{scores} = Q \cdot K^T
+```
+scores = Q · K^T
 ```
 
 形状变化:`[seq_len, d_k] × [d_k, seq_len] = [seq_len, seq_len]`
@@ -87,8 +87,8 @@ Q = X \cdot W_Q, \quad K = X \cdot W_K, \quad V = X \cdot W_V
 
 ### 步骤 3:缩放(Scale)
 
-```math
-\text{scaled\_scores} = \frac{\text{scores}}{\sqrt{d_k}}
+```
+scaled_scores = scores / √d_k
 ```
 
 > **为什么要除以 √d_k？**
@@ -99,24 +99,24 @@ Q = X \cdot W_Q, \quad K = X \cdot W_K, \quad V = X \cdot W_V
 
 ### 步骤 4:Softmax 归一化
 
-```math
-\text{attention\_weights} = \text{softmax}(\text{scaled\_scores})
+```
+attention_weights = softmax(scaled_scores)
 ```
 
 Softmax 把每个位置的分数变成概率分布(和为 1),表示"我应该把多少注意力分配给每个词"。
 
 ### 步骤 5:加权求和
 
-```math
-\text{output} = \text{attention\_weights} \cdot V
+```
+output = attention_weights · V
 ```
 
 用注意力权重对 V 做加权平均,得到最终输出。
 
 ### 完整公式
 
-```math
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+```
+Attention(Q, K, V) = softmax(QK^T / √d_k) · V
 ```
 
 这就是 Transformer 论文中那个著名的公式。现在你知道它的每一步在干什么了!
