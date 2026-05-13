@@ -101,8 +101,8 @@
 
 数学公式：
 
-```math
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+```
+Attention(Q, K, V) = softmax(QK^T / √d_k) · V
 ```
 
 **为什么要除以 √d_k？** 因为当维度很大时，点积的值会变得很大，softmax 的梯度会消失（进入饱和区）。除以 √d_k 相当于做了一个温度调节，让梯度保持健康。
@@ -135,12 +135,12 @@
 
 原论文用的是正弦/余弦编码：
 
-```math
-PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{model}})
+```
+PE(pos, 2i)   = sin(pos / 10000^(2i/d_model))
 ```
 
-```math
-PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})
+```
+PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
 ```
 
 这就像给每个位置一个**独一无二的条形码**，让模型知道谁在前面、谁在后面。
@@ -151,8 +151,8 @@ PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})
 
 每个 Transformer 层除了注意力，还有一个 FFN：
 
-```math
-\text{FFN}(x) = \text{ReLU}(xW_1 + b_1)W_2 + b_2
+```
+FFN(x) = ReLU(x·W1 + b1)·W2 + b2
 ```
 
 这是一个两层全连接网络，对每个位置**独立**做非线性变换。如果说注意力是"收集信息"，那 FFN 就是"处理信息"。
@@ -163,8 +163,8 @@ PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})
 
 每个子层的输出都是：
 
-```math
-\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))
+```
+Output = LayerNorm(x + Sublayer(x))
 ```
 
 - **残差连接**（x + Sublayer(x)）：直接把输入"短路"到输出，缓解深层网络的梯度消失问题。就像高速路上的"快速通道"，信息可以直接流过。
