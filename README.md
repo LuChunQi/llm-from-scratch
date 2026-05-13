@@ -80,6 +80,14 @@ day11-residual-connection/  # Day 11: 残差连接深入
 ├── README.md
 └── residual_connection.py   # 配套代码：梯度可视化 + 信息保留 + 残差流分析 + 变体对比
 
+day12-decoder-only/          # Day 12: Decoder-Only 架构 — Causal Mask 与自回归生成
+├── README.md
+└── decoder_only.py           # 配套代码：Causal Mask + Decoder Block + 自回归生成
+
+day13-kv-cache/              # Day 13: KV Cache — 让自回归生成快起来的"时间机器"
+├── README.md
+└── kv_cache.py               # 配套代码：KV Cache 实现 + 速度对比 + 内存估算 + Prefill/Decode 演示
+
 ...
 ```
 
