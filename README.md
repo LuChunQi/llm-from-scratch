@@ -88,6 +88,10 @@ day13-kv-cache/              # Day 13: KV Cache — 让自回归生成快起来�
 ├── README.md
 └── kv_cache.py               # 配套代码：KV Cache 实现 + 速度对比 + 内存估算 + Prefill/Decode 演示
 
+day14-mqa-gqa/               # Day 14: MQA & GQA — 给 KV Cache 瘦身的"共享经济"
+├── README.md
+└── mqa_gqa.py                # 配套代码：MHA/GQA/MQA 三合一实现 + 内存对比 + 速度实测 + expand 详解
+
 ...
 ```
 
