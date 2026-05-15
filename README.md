@@ -92,6 +92,10 @@ day14-mqa-gqa/               # Day 14: MQA & GQA — 给 KV Cache 瘦身的"共�
 ├── README.md
 └── mqa_gqa.py                # 配套代码：MHA/GQA/MQA 三合一实现 + 内存对比 + 速度实测 + expand 详解
 
+day15-flash-attention/        # Day 15: Flash Attention — 不改变数学，却让注意力快 2-4 倍的魔法
+├── README.md
+└── flash_attention.py        # 配套代码：分块注意力模拟 + 在线 Softmax 演示 + IO/显存估算 + 数值验证
+
 ...
 ```
 
