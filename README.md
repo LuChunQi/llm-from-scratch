@@ -96,6 +96,10 @@ day15-flash-attention/        # Day 15: Flash Attention — 不改变数学，�
 ├── README.md
 └── flash_attention.py        # 配套代码：分块注意力模拟 + 在线 Softmax 演示 + IO/显存估算 + 数值验证
 
+day16-pretraining/            # Day 16: 预训练 — 让 Transformer 从零学会"说人话"
+├── README.md
+└── pretraining.py            # 配套代码：完整 MiniGPT 预训练 + 字符级Tokenizer + 损失曲线 + 文本生成
+
 ...
 ```
 

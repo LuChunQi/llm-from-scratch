@@ -1,0 +1,7 @@
+# Data files
+input.txt
+*.bin
+*.pt
+*.pth
+__pycache__/
+*.pyc
