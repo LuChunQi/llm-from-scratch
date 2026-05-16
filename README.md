@@ -100,6 +100,10 @@ day16-pretraining/            # Day 16: 预训练 — 让 Transformer 从零学�
 ├── README.md
 └── pretraining.py            # 配套代码：完整 MiniGPT 预训练 + 字符级Tokenizer + 损失曲线 + 文本生成
 
+day17-sft/                    # Day 17: SFT（监督微调）— 让模型从"会说话"到"会听话"
+├── README.md
+└── sft.py                     # 配套代码：SFT 数据构造 + Chat Template + 损失掩码 + 微调训练 + 灾难性遗忘演示
+
 ...
 ```
 
