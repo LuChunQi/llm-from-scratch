@@ -104,6 +104,10 @@ day17-sft/                    # Day 17: SFT（监督微调）— 让模型从"�
 ├── README.md
 └── sft.py                     # 配套代码：SFT 数据构造 + Chat Template + 损失掩码 + 微调训练 + 灾难性遗忘演示
 
+day18-rlhf/                    # Day 18: RLHF — 让模型学会讨好人类
+├── README.md
+└── rlhf.py                    # 配套代码：偏好数据集 + Reward Model + PPO + KL惩罚可视化 + 对比实验
+
 ...
 ```
 
