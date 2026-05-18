@@ -104,9 +104,13 @@ day17-sft/                    # Day 17: SFT（监督微调）— 让模型从"�
 ├── README.md
 └── sft.py                     # 配套代码：SFT 数据构造 + Chat Template + 损失掩码 + 微调训练 + 灾难性遗忘演示
 
-day18-rlhf/                    # Day 18: RLHF — 让模型学会讨好人类
+day18-rlhf/                   # Day 18: RLHF（基于人类反馈的强化学习）
 ├── README.md
-└── rlhf.py                    # 配套代码：偏好数据集 + Reward Model + PPO + KL惩罚可视化 + 对比实验
+└── rlhf.py                    # 配套代码：Reward Model + PPO 训练 + Bradley-Terry 损失 + KL 惩罚 + 奖励曲线
+
+day19-dpo/                    # Day 19: DPO（直接偏好优化）— 绕过强化学习，直接优化偏好
+├── README.md
+└── dpo.py                     # 配套代码：DPO 损失函数 + 隐式奖励 + 偏好训练 + 对比实验
 
 ...
 ```
