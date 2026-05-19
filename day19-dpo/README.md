@@ -464,4 +464,8 @@ SimPO               — 不需要参考模型，用自身平均概率作为基�
 
 ---
 
+<<<<<<< HEAD
 *本课程代码开源于 [GitHub](https://github.com/LuChunQi/llm-from-scratch)，欢迎 Star ⭐*
+=======
+*本课程代码开源于 [GitHub](https://github.com/LuChunQi/llm-from-scratch)，欢迎 Star ⭐*
+>>>>>>> de53a65 (📝 Day 19: DPO（直接偏好优化）— 绕过强化学习，直接优化偏好)

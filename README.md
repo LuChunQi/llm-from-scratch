@@ -112,6 +112,10 @@ day19-dpo/                    # Day 19: DPO（直接偏好优化）— 绕过强
 ├── README.md
 └── dpo.py                     # 配套代码：DPO 损失函数 + 隐式奖励 + 偏好训练 + 对比实验
 
+day20-lora/                    # Day 20: LoRA（低秩适配）— 用 0.1% 的参数微调大模型
+├── README.md
+└── lora.py                    # 配套代码：LoRA 层 + 注入 Transformer + 训练演示 + 权重合并 + 多 LoRA 切换
+
 ...
 ```
 
