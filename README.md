@@ -116,6 +116,10 @@ day20-lora/                    # Day 20: LoRA（低秩适配）— 用 0.1% 的�
 ├── README.md
 └── lora.py                    # 配套代码：LoRA 层 + 注入 Transformer + 训练演示 + 权重合并 + 多 LoRA 切换
 
+day21-qlora/                   # Day 21: QLoRA & LoRA 变体 — 量化与低秩的化学反应
+├── README.md
+└── qlora_demo.py              # 配套代码：NF4 量化 + QLoRA 线性层 + 显存对比 + LoRA 变体全家福
+
 ...
 ```
 
