@@ -120,6 +120,10 @@ day21-qlora/                   # Day 21: QLoRA & LoRA 变体 — 量化与低秩
 ├── README.md
 └── qlora_demo.py              # 配套代码：NF4 量化 + QLoRA 线性层 + 显存对比 + LoRA 变体全家福
 
+day22-quantization-basics/     # Day 22: 量化基础 — 从 FP16 到 INT4 的数学之旅
+├── README.md
+└── quantization_basics.py      # 配套代码：对称/非对称量化 + 逐通道量化 + 误差分析 + 模型量化实验 + 伪量化
+
 ...
 ```
 
