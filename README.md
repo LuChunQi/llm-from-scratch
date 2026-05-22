@@ -124,6 +124,10 @@ day22-quantization-basics/     # Day 22: 量化基础 — 从 FP16 到 INT4 的�
 ├── README.md
 └── quantization_basics.py      # 配套代码：对称/非对称量化 + 逐通道量化 + 误差分析 + 模型量化实验 + 伪量化
 
+day23-advanced-quantization/    # Day 23: 量化进阶 — AWQ、GGUF、BitsAndBytes
+├── README.md
+└── advanced_quantization.py    # 配套代码：AWQ核心算法 + NF4模拟 + 混合精度 + GGUF估算 + LLM.int8()模拟
+
 ...
 ```
 
