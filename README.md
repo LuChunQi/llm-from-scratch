@@ -128,6 +128,10 @@ day23-advanced-quantization/    # Day 23: 量化进阶 — AWQ、GGUF、BitsAndB
 ├── README.md
 └── advanced_quantization.py    # 配套代码：AWQ核心算法 + NF4模拟 + 混合精度 + GGUF估算 + LLM.int8()模拟
 
+day24-moe/                      # Day 24: MoE（混合专家模型）
+├── README.md
+└── moe.py                       # 配套代码：MoE层实现 + 路由分析 + 负载均衡 + DeepSeek风格MoE + MoE语言模型训练
+
 ...
 ```
 
