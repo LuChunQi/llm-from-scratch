@@ -132,6 +132,14 @@ day24-moe/                      # Day 24: MoE（混合专家模型）
 ├── README.md
 └── moe.py                       # 配套代码：MoE层实现 + 路由分析 + 负载均衡 + DeepSeek风格MoE + MoE语言模型训练
 
+day25-distributed-training/      # Day 25: 分布式训练
+├── README.md
+└── distributed_training.py      # 配套代码：Ring All-Reduce + DDP模拟 + ZeRO分析 + 张量并行 + 流水线气泡 + 三维混合并行 + 混合精度
+
+day26-knowledge-distillation/    # Day 26: 知识蒸馏
+├── README.md
+└── knowledge_distillation.py    # 配套代码：温度Softmax + 蒸馏损失 + 暗知识可视化 + 温度扫描 + Feature蒸馏 + 三种方式对比
+
 ...
 ```
 
